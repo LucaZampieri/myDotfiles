@@ -34,6 +34,12 @@ config checkout
 config config status.showUntrackedFiles no
 config status
 ```
+### Other useful links:
+For some others dotfiles and ways to set them:
+https://github.com/jbcdnr/dotfiles
+
+To switch from https to ssh for a repo:
+https://gist.github.com/m14t/3056747
 
 ### Thanks
 again thanks to the article: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ for the help
