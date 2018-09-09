@@ -1,0 +1,71 @@
+#!/bin/sh
+function permalias ()
+{ 
+  alias "$*";
+  echo alias "$*" >> ~/.bash_aliases
+}
+
+# for the dotfile git repo
+alias config='/usr/bin/git --git-dir=/home/zampieri/.dotfile_cfg/ --work-tree=/home/zampieri'
+
+# basic
+alias open=xdg-open
+alias x=exit
+alias p=pwd
+alias h='history | tail'
+alias la='ls -A'
+
+alias update='sudo apt update'
+alias upgrade='sudo apt update && sudo apt upgrade'
+
+alias coding='source activate ada && jupyter notebook'
+alias code='jupyter notebook'
+alias matlabb='env MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre matlab'
+alias gd='gedit'
+alias pbcopy='xclip -selection clipboard'
+
+function ggit() { git add --all && git commit -m ""$1"" && git push;}
+
+# for_ epfl server
+alias srv='ssh zampieri@iccvlabsrv24.iccluster.epfl.ch'
+function server() { ssh -L "$1":127.0.0.1:"$2" zampieri@iccvlabsrv24.iccluster.epfl.ch; }
+function remoteCode() { ssh -N -L localhost:"$1":localhost:"$2" zampieri@iccvlabsrv24.iccluster.epfl.ch;}
+function fullServer() { ssh -L "$1":127.0.0.1:"$2" zampieri@iccluster"$3".iccluster.epfl.ch; }
+function cluster() { ssh zampieri@iccluster"$1".iccluster.epfl.ch;}
+function clusterCVLab { ssh zampieri@iccvlabsrv"$1".iccluster.epfl.ch;}
+function srvCopyOld() { scp zampieri@iccvlabsrv24.iccluster.epfl.ch:/home/zampieri/local/cfdfoils_clean/"$1" /home/zampieri/Documents/EPFL/Semester_project/SERVER/; }
+function srvCopyFolder() { scp -r zampieri@iccvlabsrv24.iccluster.epfl.ch:/home/zampieri/local/cfdfoils_clean/"$1" /home/zampieri/Documents/EPFL/Semester_project/SERVER/"$1"; }
+function srvCopy() { scp zampieri@iccvlabsrv24.iccluster.epfl.ch:/cvlabdata2/home/zampieri/cfdfoils_clean/"$1" /home/zampieri/Documents/EPFL/Semester_project/SERVER/; }
+function ff2png() { convert "$1" "$1".png; echo "Converted to png"; }
+function ff2pdf() { convert "$1" "$1".pdf; echo "Converted to pdf"; }
+
+alias ff='firefox https://facebook.com'
+alias fg='firefox https://github.com'
+alias fw='firefox https://web.whatsapp.com/ '
+alias f='firefox &'
+alias fg='firefox https://youtube.com https://messenger.com https://web.whatsapp.com/'
+alias fp='firefox -private-window &'
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# watch dir modif and run command
+function watch2 {
+  watch_dir=$1
+  shift
+  $@
+  fswatch -o --latency=1 $watch_dir | while read -r; do $@; done
+}
+
+alias t='tmux -CC attach -t'
+alias tls='tmux list-sessions'
+alias trn="tmux rename-session"
+alias tmk="tmux kill-session -t"
+
+# Load the modules for pacs
+alias loadModules='export mkProfile=/u/sw && source $mkProfile/etc/profile && module load gcc-glibc/5 && module load trilinos && module load muparser && module avail'
+
