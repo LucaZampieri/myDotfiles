@@ -145,3 +145,7 @@ fi
 # that have been linked with another version of java
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre
 
+# another matlab problem while using gmshs
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+
+
