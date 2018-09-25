@@ -24,6 +24,23 @@ alias matlabb='env MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre matlab'
 alias gd='gedit'
 alias pbcopy='xclip -selection clipboard'
 
+# paths
+alias gaia='cd /home/zampieri/Documents/Madrid/GaiaLab'
+
+# firefox
+alias ff='firefox https://facebook.com'
+alias fg='firefox https://github.com'
+alias fw='firefox https://web.whatsapp.com/ '
+alias f='firefox &'
+alias fg='firefox https://youtube.com https://messenger.com https://web.whatsapp.com/'
+alias fp='firefox -private-window &'
+
+# tmux
+alias t='tmux -CC attach -t'
+alias tls='tmux list-sessions'
+alias trn="tmux rename-session"
+alias tmk="tmux kill-session -t"
+
 function ggit() { git add --all && git commit -m ""$1"" && git push;}
 
 # for_ epfl server
@@ -39,12 +56,7 @@ function srvCopy() { scp zampieri@iccvlabsrv24.iccluster.epfl.ch:/cvlabdata2/hom
 function ff2png() { convert "$1" "$1".png; echo "Converted to png"; }
 function ff2pdf() { convert "$1" "$1".pdf; echo "Converted to pdf"; }
 
-alias ff='firefox https://facebook.com'
-alias fg='firefox https://github.com'
-alias fw='firefox https://web.whatsapp.com/ '
-alias f='firefox &'
-alias fg='firefox https://youtube.com https://messenger.com https://web.whatsapp.com/'
-alias fp='firefox -private-window &'
+
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -60,11 +72,6 @@ function watch2 {
   $@
   fswatch -o --latency=1 $watch_dir | while read -r; do $@; done
 }
-
-alias t='tmux -CC attach -t'
-alias tls='tmux list-sessions'
-alias trn="tmux rename-session"
-alias tmk="tmux kill-session -t"
 
 # Load the modules for pacs
 alias loadModules='export mkProfile=/u/sw && source $mkProfile/etc/profile && module load gcc-glibc/5 && module load trilinos && module load muparser && module avail'
