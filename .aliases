@@ -1,4 +1,5 @@
 #!/bin/sh
+# Function to add aliases
 function permalias ()
 { 
   alias "$*";
@@ -14,14 +15,17 @@ alias x=exit
 alias p=pwd
 alias h='history | tail'
 alias la='ls -A'
+alias ll='ls -alF'
+alias l='ls -CF'
 
 alias update='sudo apt update'
 alias upgrade='sudo apt update && sudo apt upgrade'
 
-alias coding='source activate ada && jupyter notebook'
-alias code='jupyter notebook'
+alias coding='jupyter notebook'
+alias code='jupyter lab'
 alias matlabb='env MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre matlab'
 alias gd='gedit'
+alias pyy='python'
 alias pbcopy='xclip -selection clipboard'
 
 # paths
@@ -34,6 +38,10 @@ alias fw='firefox https://web.whatsapp.com/ '
 alias f='firefox &'
 alias fg='firefox https://youtube.com https://messenger.com https://web.whatsapp.com/'
 alias fp='firefox -private-window &'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # tmux
 alias t='tmux -CC attach -t'
