@@ -3,7 +3,7 @@
 function permalias ()
 { 
   alias "$*";
-  echo alias "$*" >> ~/.bash_aliases
+  echo alias "$*" >> ~/.aliases
 }
 
 # for the dotfile git repo
@@ -23,13 +23,12 @@ alias upgrade='sudo apt update && sudo apt upgrade'
 
 alias coding='jupyter notebook'
 alias code='jupyter lab'
-alias matlabb='env MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre matlab'
 alias gd='gedit'
 alias pyy='python'
 alias pbcopy='xclip -selection clipboard'
 
 # paths
-alias gaia='cd /home/zampieri/Documents/Madrid/GaiaLab'
+alias pdm='cd /home/zampieri/Desktop/PDM'
 
 # firefox
 alias ff='firefox https://facebook.com'
@@ -64,6 +63,8 @@ function srvCopy() { scp zampieri@iccvlabsrv24.iccluster.epfl.ch:/cvlabdata2/hom
 function ff2png() { convert "$1" "$1".png; echo "Converted to png"; }
 function ff2pdf() { convert "$1" "$1".pdf; echo "Converted to pdf"; }
 
+# For errors "solving"
+alias matlabb='env MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk-amd64/jre matlab'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
